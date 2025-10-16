@@ -1,0 +1,76 @@
+INFO:root:Starting LinkedIn job scrape for "Data analyst" in "US"...
+2025-10-09 19:22:11,539 - INFO - Starting LinkedIn job scrape for "Data Analyst" in "US"...
+2025-10-09 19:27:19,606 - INFO - Starting LinkedIn job scrape for "Data Analyst" in "US"...
+2025-10-09 19:27:22,712 - INFO - Scrolling page 1...
+2025-10-09 19:27:33,650 - INFO - No 'Show more' button found on this page.
+2025-10-09 19:27:33,650 - INFO - Scrolling page 2...
+2025-10-09 19:27:41,954 - INFO - No 'Show more' button found on this page.
+2025-10-09 19:27:47,542 - INFO - Scraped "Data Analyst - The Orchard" at Sony Music Entertainment in New York, NY
+2025-10-09 19:27:52,984 - INFO - Scraped "Junior Data Analyst" at EnGen in United States
+2025-10-09 19:27:59,789 - INFO - Scraped "Junior Data Analyst" at Lensa in New York, NY
+2025-10-09 19:28:06,963 - INFO - Scraped "Data Analyst" at Artefact in New York, NY
+2025-10-09 19:28:11,507 - INFO - Scraped "Data Analyst" at Rippling in San Francisco, CA
+2025-10-09 19:28:18,681 - INFO - Scraped "Data Analyst I" at Maryville Academy in Des Plaines, IL
+2025-10-09 19:28:23,573 - INFO - Scraped "Data Analyst II" at Lennar in Miami, FL
+2025-10-09 19:28:27,850 - INFO - Scraped "Sr. Associate, Business Intelligence" at LinkedIn in Sunnyvale, CA
+2025-10-09 19:28:35,138 - INFO - Scraped "Data Analyst" at Aditi Consulting in Santa Ana, CA
+2025-10-09 19:28:42,732 - INFO - Scraped "Data Analyst" at The Clorox Company in Durham, NC
+2025-10-09 19:28:47,537 - INFO - Scraped "Data Analyst" at Daice Labs in Boston, MA
+2025-10-09 19:28:53,828 - INFO - Scraped "Data Analyst" at Helic & Co. in United States
+2025-10-09 19:29:01,401 - INFO - Scraped "Senior Data Analyst" at Ghost in Los Angeles Metropolitan Area
+2025-10-09 19:29:07,946 - INFO - Scraped "Data Analyst" at Agility Partners in Cincinnati Metropolitan Area
+2025-10-09 19:29:14,550 - INFO - Scraped "Junior Data Analyst" at Artisan Talent in New York, NY
+2025-10-09 19:29:22,443 - INFO - Scraped "Data Analyst" at Air Apps in San Francisco, CA
+2025-10-09 19:29:28,780 - INFO - Scraped "Data Analyst" at The Orchard in New York City Metropolitan Area
+2025-10-09 19:29:34,395 - INFO - Scraped "Data Analyst" at Amplify in United States
+2025-10-09 19:29:42,108 - INFO - Scraped "Data Analyst" at AARATECH in San Francisco Bay Area
+2025-10-09 19:29:47,234 - INFO - Scraped "Data Analyst" at KINETIQ in United States
+2025-10-09 19:29:53,918 - INFO - Scraped "Data Analyst" at AARATECH in Los Angeles Metropolitan Area
+2025-10-09 19:30:00,461 - INFO - Scraped "Data Analyst II" at Lennar in Irving, TX
+2025-10-09 19:30:05,275 - INFO - Scraped "Data Analyst" at AARATECH in Dallas-Fort Worth Metroplex
+2025-10-09 19:30:12,636 - INFO - Scraped "Data Analyst" at AARATECH in New York City Metropolitan Area
+2025-10-09 19:30:17,494 - INFO - Scraped "Data Analyst" at Aditi Consulting in San Jose, CA
+2025-10-09 19:30:22,235 - INFO - Scraped "Business Intelligence Data Analyst" at Evolv Technology in Waltham, MA
+2025-10-09 19:30:28,955 - INFO - Scraped "Data Analyst" at AARATECH in Greater Chicago Area
+2025-10-09 19:30:34,199 - INFO - Scraped "Data Analyst" at AARATECH in Washington DC-Baltimore Area
+2025-10-09 19:30:38,848 - INFO - Scraped "Junior Data Analyst" at DetaPent in United States
+2025-10-09 19:30:45,126 - INFO - Scraped "Analytics Analyst" at Ralph Lauren in Nutley, NJ
+2025-10-09 19:30:49,751 - INFO - Scraped "Data Analyst" at AARATECH in Greater Boston
+2025-10-09 19:30:55,877 - INFO - Scraped "Junior Data Analyst" at Confidential in San Antonio, Texas Metropolitan Area
+2025-10-09 19:31:01,256 - INFO - Scraped "Associate, Data Analyst" at Braven in Atlanta, GA
+2025-10-09 19:31:06,875 - INFO - Scraped "Data Analyst" at Gartner in Irving, TX
+2025-10-09 19:31:13,222 - INFO - Scraped "Data Analyst" at Kforce Inc in North Palm Beach, FL
+2025-10-09 19:31:17,844 - INFO - Scraped "Business Intelligence Analyst" at eBay in Runnemede, NJ
+2025-10-09 19:31:25,295 - INFO - Scraped "Data Analyst" at CBC in Reston, VA
+2025-10-09 19:31:31,267 - INFO - Scraped "Entry Level Data Analyst" at CCS Global Tech in San Diego, CA
+2025-10-09 19:31:38,285 - INFO - Scraped "Data Analyst I" at PatientIQ in Chicago, IL
+2025-10-09 19:31:44,668 - INFO - Scraped "Data Analyst 4" at Ursus, Inc. in San Jose, CA
+2025-10-09 19:31:52,220 - INFO - Scraped "Data Analyst" at Insight Global in Seattle, WA
+2025-10-09 19:31:58,140 - INFO - Scraped "Data Analyst Intern" at Cornerstone Building Brands in Rocky Mount, VA
+2025-10-09 19:32:06,014 - INFO - Scraped "Data Analyst" at US Tech Solutions in New York, NY
+2025-10-09 19:32:11,513 - INFO - Scraped "Data Analyst" at MBTA in Boston, MA
+2025-10-09 19:32:19,183 - INFO - Scraped "Data Analyst" at Emma of Torre.ai in United States
+2025-10-09 19:32:24,258 - INFO - Scraped "Data Analyst" at Insight Global in Beaverton, OR
+2025-10-09 19:32:30,283 - INFO - Scraped "Data Analyst" at Authorium in United States
+2025-10-09 19:32:35,789 - INFO - Scraped "Data Analyst" at Gartner in Fort Myers, FL
+2025-10-09 19:32:44,312 - INFO - Scraped "Data Analyst - The Orchard" at The Orchard in New York, NY
+2025-10-09 19:32:52,565 - INFO - Scraped "Data Analyst Lead" at Progressive Insurance in United States
+2025-10-09 19:32:57,054 - INFO - Scraped "Data Analyst" at MaximaTek in Wyoming, United States
+2025-10-09 19:33:02,674 - INFO - Scraped "Marketing Data Analyst" at Roadie in United States
+2025-10-09 19:33:07,217 - INFO - Scraped "Sr Data Analyst" at Independence Realty Trust Inc. in Tampa, FL
+2025-10-09 19:33:13,968 - INFO - Scraped "Data Analyst, AbbVie Complete Access (onsite 3-days per week)" at AbbVie in North Chicago, IL
+2025-10-09 19:33:21,242 - INFO - Scraped "Data Analyst" at A-Line Staffing Solutions in Orlando, FL
+2025-10-09 19:33:29,268 - INFO - Scraped "Data Analyst Intern - Marketing CPG" at JonnyPops in Plymouth, MN
+2025-10-09 19:33:35,897 - INFO - Scraped "Data Analyst/Data Scientist/Data Engineer" at Leadenhall Search & Selection in New York, United States
+2025-10-09 19:33:41,822 - INFO - Scraped "Data Analyst" at Aditi Consulting in Wauwatosa, WI
+2025-10-09 19:33:47,581 - INFO - Scraped "Business Intelligence Data Analyst" at Evolv Technology in Waltham, MA
+2025-10-09 19:33:53,363 - INFO - Scraped "Data Analyst" at AARATECH in Greater Chicago Area
+2025-10-09 19:33:58,845 - INFO - Scraped "Data Analyst" at AARATECH in Washington DC-Baltimore Area
+2025-10-09 19:34:05,885 - INFO - Scraped "Junior Data Analyst" at DetaPent in United States
+2025-10-09 19:34:12,518 - INFO - Scraped "Analytics Analyst" at Ralph Lauren in Nutley, NJ
+2025-10-09 19:34:18,546 - INFO - Scraped "Data Analyst" at AARATECH in Greater Boston
+2025-10-09 19:34:24,639 - INFO - Scraped "Junior Data Analyst" at Confidential in San Antonio, Texas Metropolitan Area
+2025-10-09 19:34:31,626 - INFO - Scraped "Associate, Data Analyst" at Braven in Atlanta, GA
+2025-10-09 19:34:37,356 - INFO - Scraped "Data Analyst" at Gartner in Irving, TX
+2025-10-09 19:34:41,642 - INFO - Scraped "Data Analyst" at Kforce Inc in North Palm Beach, FL
+2025-10-09 19:34:43,993 - INFO - Saved 68 jobs to jobs.csv
