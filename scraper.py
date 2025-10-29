@@ -191,7 +191,7 @@ def fetch_jobs(keyword, location, pages):
             resp.raise_for_status()
         except requests.exceptions.RequestException as e:
             print(f"⚠️ Error fetching page {page+1}: {e}")
-            time.sleep(random.uniform(10, 20))
+            time.sleep(random.uniform(5,12))
             continue
 
         soup = BeautifulSoup(resp.text, "html.parser")
@@ -260,7 +260,7 @@ def fetch_jobs(keyword, location, pages):
                         pass
                 if company_url != "N/A":
                     employee_size = get_employee_size(company_url)
-                    time.sleep(random.uniform(2, 5))
+                    time.sleep(random.uniform(5, 10))
                     
                 crawl_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 # job_type = detect_job_type(title, description)

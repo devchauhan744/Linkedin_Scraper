@@ -1,24 +1,38 @@
 import requests
 from bs4 import BeautifulSoup
 
-def fetch_job_description(url):
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
-    }
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    
-    # Find the job description section
-    job_description_section = soup.find('div', {'class': 'description__text'})
-    
-    if job_description_section:
-        return job_description_section.get_text(strip=True)
-    else:
-        return "Job description not found."
+# Target job page (or job detail URL)
+url = "https://www.linkedin.com/jobs/view/4332880083/?alternateChannel=search&eBP=NOT_ELIGIBLE_FOR_CHARGING&trk=d_flagship3_search_srp_jobs&refId=pwT1dh34%2BtfxMhbCPH36gw%3D%3D&trackingId=S%2BxGjh3mVAjt62JW8fwWSg%3D%3D"
 
-# URL of the LinkedIn job posting
-url = 'https://ca.linkedin.com/jobs/view/data-analyst-at-helic-co-4314443439'
+# -- 1. Set up headers and cookies --
+headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/120 Safari/537.36",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 
-# Fetch and print the job description
-job_description = fetch_job_description(url)
-print(job_description)
+# You must manually copy your LinkedIn 'li_at' cookie value from your browser.
+cookies = {
+    "li_at": "PASTE_YOUR_LINKEDIN_LI_AT_COOKIE_HERE"
+}
+
+# -- 2. Make the request --
+response = requests.get(url, headers=headers, cookies=cookies)
+
+if response.status_code != 200:
+    print(f"Request failed: {response.status_code}")
+    print(response.text[:500])
+    exit()
+
+# -- 3. Parse HTML --
+soup = BeautifulSoup(response.text, "html.parser")
+
+# -- 4. Locate the "About the job" div --
+about_div = soup.select_one("div.jobs-box__html-content.jobs-description-content__text--stretch")
+
+if about_div:
+    about_text = about_div.get_text(separator="\n").strip()
+    print("\n✅ About the job:\n")
+    print(about_text[:1500])  # print first 1500 characters
+else:
+    print("❌ Couldn't find job description (page likely needs JS or wrong cookie/session).")
