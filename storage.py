@@ -1,71 +1,46 @@
-# storage.py
-import pandas as pd
-import logging
-from openpyxl.utils import get_column_letter
+import pandas as pd, logging
 from sqlalchemy import text
+from openpyxl.utils import get_column_letter
 from db_config import get_engine
 
+def create_dataframe(data):
+    cols = [
+        "JobTitle", "Company", "City", "State", "Country", "DatePosted",
+        "JobLink", "Email", "JobDescription", "CompanyWebsite",
+        "CompanyLinkedInURL", "CrawlTime", "ContractType", "Industry", "EmployeeSize"
+    ]
+    return pd.DataFrame(data, columns=cols)
 
-def save_to_excel(data, filename="linkedin_jobs.xlsx"):
-    try:
-        df = create_dataframe(data)
+def adjust_column_width(writer, df, sheet):
+    ws = writer.sheets[sheet]
+    for i, col in enumerate(df.columns, 1):
+        ws.column_dimensions[get_column_letter(i)].width = min(80, max(df[col].astype(str).map(len).max(), len(col)) + 5)
 
-        # ✅ Drop logical duplicates before saving
-        # df.drop_duplicates(subset=["JobTitle", "Company", "City", "Country"], inplace=True)
-
-        df.insert(0, "Sr No", range(1, len(df) + 1))
-
-        with pd.ExcelWriter(filename, engine="openpyxl") as writer:
-            df.to_excel(writer, index=False, sheet_name="Jobs")
-            adjust_excel_column_width(writer, df, "Jobs")
-
-        logging.info(f"📁 Saved {len(df)} unique job records to {filename}")
-
-    except Exception as e:
-        logging.error(f"❌ Failed to save data to Excel: {e}")
-
+def save_to_excel(data, filename):
+    df = create_dataframe(data)
+    df.insert(0, "Sr No", range(1, len(df) + 1))
+    with pd.ExcelWriter(filename, engine="openpyxl") as w:
+        df.to_excel(w, index=False, sheet_name="Jobs")
+        adjust_column_width(w, df, "Jobs")
+    logging.info(f"💾 Saved {len(df)} jobs to {filename}")
 
 def save_to_sql_server(data):
-    """Save scraped job data into SQL Server (deduped)."""
     try:
         df = create_dataframe(data)
-        # df.drop_duplicates(subset=["JobTitle", "Company", "City", "Country"], inplace=True)
         engine = get_engine()
-
-        # ✅ Ensure unique index exists
         with engine.begin() as conn:
             conn.execute(text("""
-                IF NOT EXISTS (
-                    SELECT * FROM sys.indexes WHERE name = 'UQ_JobTitle_Company_City_Country'
-                )
-                CREATE UNIQUE INDEX UQ_JobTitle_Company_City_Country
-                ON LinkedInJobs (JobTitle, Company, City, Country);
+                IF OBJECT_ID('dbo.LinkedInJobs', 'U') IS NULL
+                CREATE TABLE LinkedInJobs (
+                    JobTitle NVARCHAR(255), Company NVARCHAR(255),
+                    City NVARCHAR(255), State NVARCHAR(255), Country NVARCHAR(255),
+                    DatePosted NVARCHAR(50), JobLink NVARCHAR(MAX), Email NVARCHAR(MAX),
+                    JobDescription NVARCHAR(MAX), CompanyWebsite NVARCHAR(MAX),
+                    CompanyLinkedInURL NVARCHAR(MAX), CrawlTime DATETIME,
+                    ContractType NVARCHAR(100), Industry NVARCHAR(100), EmployeeSize NVARCHAR(100)
+                );
             """))
-
-        # # ✅ Insert data safely (ignore duplicates)
-        # try:
-        #     df.to_sql("LinkedInJobs", con=engine, if_exists="append", index=False)
-        #     logging.info("💾 Data successfully saved to SQL Server (duplicates ignored).")
-        # except Exception as insert_error:
-        #     logging.warning(f"⚠️ Duplicate rows skipped during SQL insert: {insert_error}")
-
+        df.to_sql("LinkedInJobs", con=engine, if_exists="append", index=False)
+        logging.info("✅ Data saved to SQL Server.")
     except Exception as e:
-        logging.error(f"❌ Failed to save data to SQL Server: {e}")
-
-
-def create_dataframe(data):
-    return pd.DataFrame(
-        data,
-        columns=[
-            "JobTitle", "Company", "City", "State", "Country", "DatePosted",
-            "JobLink", "Email", "JobDescription", "CompanyWebsite",
-            "CompanyLinkedInURL", "CrawlTime", "ContractType", "Industry", "EmployeeSize"
-        ]
-    )
-
-
-def adjust_excel_column_width(writer, df, sheet_name):
-    worksheet = writer.sheets[sheet_name]
-    for i, col in enumerate(df.columns, 1):
-        max_length = max(df[col].astype(str).map(len).max(), len(col))
-        worksheet.column_dimensions[get_column_letter(i)].width = max_length + 5
+        logging.error(f"❌ SQL Save failed: {e}")
